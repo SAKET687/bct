@@ -1,0 +1,205 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>SnapSphere</title>
+		<style>
+			body {
+				margin: 2px;
+				background-color: #100f10;
+				color: #ffffff;
+				background-image: url("bg_image.png");
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+
+			.header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 10px 20px;
+				color: #ffffff;
+				background-color: #2e2d2d;
+				margin: 10px;
+			}
+
+			.logoName {
+				display: flex;
+				align-items: center;
+			}
+
+			.logo {
+				width: 50px;
+				height: 50px;
+				margin-right: 10px;
+				border-radius: 50%;
+			}
+
+			.items {
+				display: flex;
+			}
+
+			.items a {
+				text-decoration: none;
+				color: #ffffff;
+				margin-right: 60px;
+			}
+
+			.mobile-menu-icon {
+				display: none;
+				cursor: pointer;
+				font-size: 24px;
+				margin-right: 20px;
+			}
+
+			.mobile-menu-list {
+				display: none;
+				flex-direction: column;
+				position: absolute;
+				top: 70px;
+				right: 20px;
+				background-color: #2e2d2d;
+				border: 2px solid rgb(255, 255, 255);
+				padding: 10px;
+				z-index: 1;
+			}
+
+			.mobile-menu-list a {
+				text-decoration: none;
+				color: #ffffff;
+				margin-bottom: 10px;
+			}
+
+			@media only screen and (max-width: 768px) {
+				.mobile-menu-icon {
+					display: block;
+				}
+
+				.items {
+					display: none;
+				}
+			}
+
+			.header img {
+				border-radius: 10px;
+			}
+
+			.home-content {
+				height: 85vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+			}
+
+			.bold-head h1 {
+				font-size: 2.5rem;
+				line-height: 1.2;
+			}
+
+			.norm-head h2 {
+				font-size: 1.8rem;
+				line-height: 1.5;
+			}
+
+			.expl-btn {
+				margin: 10px;
+				/* padding: 10px; */
+				background-color: #876cc1;
+				border: none;
+				margin-top: 20px;
+				padding: 10px 20px;
+				border-radius: 5px;
+				cursor: pointer;
+				transition: background-color 0.3s ease;
+				color: #ffffff;
+			}
+
+			.expl-btn:hover {
+				background-color: #634d9d;
+			}
+
+			.container {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 90vh;
+			}
+
+			.p {
+				text-decoration: none;
+			}
+
+			a {
+				text-decoration: none;
+				color: white;
+			}
+
+			.logoName a {
+				font-size: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<div class="logoName">
+				<a href="/">SnapSphere</a>
+			</div>
+			<div class="items">
+				<a href="/">Home🏠</a>
+				<a href="#">Search🔍</a>
+				<a href="#">About🔤</a>
+				<a href="{% url "login" %}">Sign up/Log in🔐</a>
+			</div>
+			<div class="mobile-menu-icon" onclick="toggleMobileMenu()">☰</div>
+			<div class="mobile-menu-list" id="mobileMenuList">
+				<a href="/">Home🏠</a>
+				<a href="#">Search🔍</a>
+				<a href="#">About🔤</a>
+				<a href="{% url "login" %}">Sign up/Log in🔐</a>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="home-content">
+				<div class="home-page">
+					<div class="bold-head">
+						<h1>
+							Empowering Digital Artists
+							<br />
+							Showcase and Collaborate
+						</h1>
+					</div>
+					<div class="norm-head">
+						<h2>
+							Unleash your creativity with our platform,
+							empowering digital artists to
+							<br />
+							showcase their work and collaborate, seamlessly in a
+							vibrant community.
+						</h2>
+					</div>
+					<div class="expl-btn">
+						<a href="#"> Start Exploring </a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			function toggleMobileMenu() {
+				const mobileMenu = document.getElementById("mobileMenuList");
+				if (mobileMenu.style.display === "flex") {
+					mobileMenu.style.display = "none";
+				} else {
+					mobileMenu.style.display = "flex";
+				}
+			}
+		</script>
+	</body>
+</html>
+
+<!-- templates: htmls only -->
